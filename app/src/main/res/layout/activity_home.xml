@@ -8,7 +8,6 @@
     tools:context=".HomeActivity">
 
 
-
     <FrameLayout
         android:id="@+id/flContainer"
         android:layout_width="408dp"
@@ -22,6 +21,7 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flContainer"
         app:menu="@menu/menu_bottom_navigation" />

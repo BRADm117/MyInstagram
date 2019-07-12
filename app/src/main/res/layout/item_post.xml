@@ -28,4 +28,5 @@
         android:layout_marginBottom="16dp"
         android:text="TextView"
         tools:text="Hipster " />
+
 </LinearLayout>

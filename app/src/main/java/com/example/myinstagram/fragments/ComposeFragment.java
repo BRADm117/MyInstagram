@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -47,6 +48,7 @@ public class ComposeFragment extends Fragment {
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
     public String photoFileName = "photo.jpg";
     private File photoFile;
+    public ProgressBar pb;
 
 
     //fragments, like activities, require a layout file, make an xml for each fragment under layout folder
@@ -69,6 +71,8 @@ public class ComposeFragment extends Fragment {
         btnCaptureImage = view.findViewById(R.id.btnCaptureImage);
         btnSubmit = view.findViewById(R.id.btnSubmit);
         ivPostImage = view.findViewById(R.id.ivPostImage);
+        pb = (ProgressBar) view.findViewById(R.id.pbLoading);
+
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +90,8 @@ public class ComposeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //loadTopPosts();
+
+                pb.setVisibility(ProgressBar.VISIBLE);
                 String description = etDescription.getText().toString();
                 ParseUser user = ParseUser.getCurrentUser();
                 if (photoFile == null || ivPostImage.getDrawable() == null){
@@ -170,6 +176,7 @@ public class ComposeFragment extends Fragment {
                 Log.d("Home Activity", "Success!!");
                 etDescription.setText("");
                 ivPostImage.setImageResource(0);
+                pb.setVisibility(ProgressBar.INVISIBLE);
             }
         });
     }

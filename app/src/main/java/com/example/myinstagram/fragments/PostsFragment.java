@@ -58,6 +58,8 @@ public class PostsFragment extends Fragment {
         //set the layout manager on the recycler view //how you lay out contents onto the screen
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
         queryPosts();
+        getActivity().setTitle("Bruh");
+
 
         logoutButton = view.findViewById(R.id.logout_btn);
         logoutButton.setVisibility(View.GONE);
